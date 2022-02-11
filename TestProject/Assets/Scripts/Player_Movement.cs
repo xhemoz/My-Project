@@ -6,11 +6,9 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     public CharacterController controller;
-
     [SerializeField]
     private Transform groundCheck = null;
-
-    public float moveSpeed = 12f;
+    private float moveSpeed = 12f;
     private float gravity = -9.81f;
     private float groundDist = 1f;
     private float jumpHeight = 5f;

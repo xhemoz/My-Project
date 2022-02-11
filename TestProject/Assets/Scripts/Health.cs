@@ -6,21 +6,24 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
-    public const int maxHealth = 100;
-    public int currHealth = maxHealth;
-    public RectTransform healthBar;
+    [SerializeField]
+    private int maxHealth = 100;
+    private int currHealth;
+
+    public Health_Bar bar;
+    private void Start()
+    {
+        currHealth = maxHealth;
+    }
     public void TakeDamage(int damageAmmount)
     {
         currHealth -= damageAmmount;
-
+        bar.UpdateHealthBar(currHealth, maxHealth);
         if (currHealth <= 0)
         {
             currHealth = 0;
             Destroy(gameObject);
-            UI_Manager.instance.killCount++;
-            UI_Manager.instance.UpdateKillCounter();
         }
 
-        healthBar.sizeDelta = new Vector2(currHealth * 2, healthBar.sizeDelta.y);
     }
 }

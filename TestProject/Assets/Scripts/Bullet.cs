@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
 {
     public float lifetime = 3f;
     private float bulletSpeed = 100f;
-    public Transform lookTarget = null;
 
     private int damage = 20;
     private void Start()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     private Camera cam;
-    private float dashSpeed = 250f;
+    private float dashSpeed = 800f;
     private CharacterController controller;
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +23,6 @@ public class Dash : MonoBehaviour
         Vector3 moveDir =(transform.forward * moveZ) + (transform.right * moveX);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            //controller.Move(moveDir * Time.deltaTime);
             controller.Move(moveDir * Time.deltaTime);
         }
     }

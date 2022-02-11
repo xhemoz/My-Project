@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    public Camera cam;
+    [SerializeField]
+    private Camera cam;
 
     private float screenX;
     private float screenY;

@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Pause_Game : MonoBehaviour
 {
     private bool paused = false;
-    public GameObject quitMenu;
+    [SerializeField]
+    private GameObject quitMenu;
     void Start()
     {
         quitMenu = GameObject.Find("QuitMenu");

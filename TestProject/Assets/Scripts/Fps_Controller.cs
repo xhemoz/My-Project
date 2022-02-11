@@ -10,8 +10,8 @@ public class Fps_Controller : MonoBehaviour
     public int mouseSensitivity;
     public Transform camRotate;
 
-    float xRotation = 0f;
-    float yRotation = 0f;
+    private float xRotation = 0f;
+    private float yRotation = 0f;
 
     // Start is called before the first frame update
     void Start()
