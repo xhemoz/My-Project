@@ -207,17 +207,17 @@ MonoBehaviour:
     lightLayerName7: Light Layer 7
     supportDistortion: 1
     supportTransparentBackface: 1
-    supportTransparentDepthPrepass: 1
-    supportTransparentDepthPostpass: 1
+    supportTransparentDepthPrepass: 0
+    supportTransparentDepthPostpass: 0
     colorBufferFormat: 74
-    supportCustomPass: 1
+    supportCustomPass: 0
     customBufferFormat: 12
     supportedLitShaderMode: 2
     supportDecals: 1
-    msaaSampleCount: 1
-    supportMotionVectors: 1
-    supportRuntimeDebugDisplay: 1
-    supportDitheringCrossFade: 1
+    msaaSampleCount: 8
+    supportMotionVectors: 0
+    supportRuntimeDebugDisplay: 0
+    supportDitheringCrossFade: 0
     supportTerrainHole: 0
     supportRayTracing: 0
     lightLoopSettings:
@@ -291,7 +291,7 @@ MonoBehaviour:
       forceResolution: 0
       forcedPercentage: 100
     lowresTransparentSettings:
-      enabled: 1
+      enabled: 0
       checkerboardDepthBuffer: 1
       upsampleType: 1
     xrSettings:
