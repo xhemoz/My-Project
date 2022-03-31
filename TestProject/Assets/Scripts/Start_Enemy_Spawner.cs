@@ -16,7 +16,11 @@ public class Start_Enemy_Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SetSpawn", 1f, 1f);
+        //InvokeRepeating("SetSpawn", 1f, 1f);
+        for(int i = 0; i<= 3; i++)
+        {
+            Invoke("SetSpawn", .5f);
+        }
     }
 
     Transform GetRandomSpawnPoint(Transform[] spawnArray)
