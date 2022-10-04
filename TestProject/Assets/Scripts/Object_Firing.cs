@@ -27,7 +27,7 @@ public class Object_Firing : MonoBehaviour
                 nextFire = Time.time;
                 Vector3 rayOrigin = fpscam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
                 RaycastHit hit;
-                Debug.DrawRay(rayOrigin, transform.forward * 10, Color.red);
+                //Debug.DrawRay(rayOrigin, transform.forward * 10, Color.red);
                 if (Physics.Raycast(rayOrigin, fpscam.transform.forward, out hit, weaponRange))
                 {
                     Instantiate(bulletPrefab, barrelEnd.position, barrelEnd.rotation);

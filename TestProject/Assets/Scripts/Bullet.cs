@@ -7,7 +7,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifetime = 3f;
-    private float bulletSpeed = 100f;
+    public float bulletSpeed = 100f;
 
     private int damage = 20;
     private void Start()
@@ -18,10 +18,14 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent(out Health health))
+        Health health = other.gameObject.GetComponent<Health>();
+        if (other.gameObject.CompareTag("Player"))
         {
             health.TakeDamage(damage);
         }
-        //Destroy(gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            health.TakeDamage(damage);
+        }
     }
 }

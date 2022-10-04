@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class Enemy_AI : MonoBehaviour
 {
+    Enemy_Shooting shootTarget;
     private Transform followTarget;
     private float withinRange = 30f;
     private NavMeshAgent agent;
@@ -14,6 +15,7 @@ public class Enemy_AI : MonoBehaviour
     {
         followTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
+        shootTarget = GetComponent<Enemy_Shooting>();
     }
 
     void Update()
@@ -21,8 +23,12 @@ public class Enemy_AI : MonoBehaviour
         float distance = Vector3.Distance(transform.position, followTarget.position);
         if (distance <= withinRange)
         {
-            transform.LookAt(followTarget.transform.position);
-            agent.SetDestination(followTarget.position);
+            if(followTarget != null)
+            {
+                transform.LookAt(followTarget.transform.position);
+                shootTarget.ShootProjectile();
+                agent.SetDestination(followTarget.position);
+            }
         }
     }
 }

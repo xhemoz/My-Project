@@ -21,8 +21,12 @@ public class Health : MonoBehaviour
         bar.UpdateHealthBar(currHealth, maxHealth);
         if (currHealth <= 0)
         {
-            currHealth = 0;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            if(this.CompareTag("Player"))
+            {
+                Player_Script reset = GetComponent<Player_Script>();
+                reset.OnDeath();
+            }
         }
 
     }
