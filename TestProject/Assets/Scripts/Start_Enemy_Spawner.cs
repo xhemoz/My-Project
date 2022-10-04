@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class Start_Enemy_Spawner : MonoBehaviour
 {
-    [SerializeField]
     public GameObject[] enemies;
-    [SerializeField]
     public Transform[] spawns;
 
     private GameObject enemyRef;
     private Transform spawnRef;
 
+    private float spawnTime = 1f;
+    private float spawnDelay = 1f;
+    private bool stopSpawning = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("SetSpawn", 1f, 1f);
-        for(int i = 0; i<= 3; i++)
-        {
-            Invoke("SetSpawn", .5f);
-        }
+        InvokeRepeating("SetSpawn", spawnTime, spawnDelay);
     }
 
     Transform GetRandomSpawnPoint(Transform[] spawnArray)
@@ -43,5 +39,7 @@ public class Start_Enemy_Spawner : MonoBehaviour
         enemyRef = GetRandomEnemy(enemies);
 
         var clone = Instantiate(enemyRef, spawnRef.position, Quaternion.identity);
+        if (stopSpawning) { CancelInvoke("SetSpawn"); }
+        
     }
 }
